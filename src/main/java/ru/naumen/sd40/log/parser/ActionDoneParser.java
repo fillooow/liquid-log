@@ -35,6 +35,7 @@ public class ActionDoneParser
     private int addObjectActions = 0;
     private int editObjectsActions = 0;
     private int getListActions = 0;
+    private int getCatalogsActions = 0; //TODO: счётчик каталогичных экшонов (3)
     private int commentActions = 0;
 
     private int getFormActions = 0;
@@ -65,9 +66,14 @@ public class ActionDoneParser
         nan = count == 0;
     }
 
-    public int geListActions()
+    public int getListActions()
     {
         return getListActions;
+    }
+
+    public int getCatalogActions()
+    {
+        return getCatalogsActions;
     }
 
     public HashMap<String, Integer> getActionsCounter()
@@ -207,6 +213,11 @@ public class ActionDoneParser
             else if (actionInLowerCase.matches("(?i)[a-zA-Z]+search[a-zA-Z]+"))
             {
                 searchActions++;
+            }
+            // Через регулярные выражения ищем наши каталог экшоны
+            else if (actionInLowerCase.matches("(?i)^([a-zA-Z]+|Get)[a-zA-Z]+Catalog[a-zA-Z]+"))
+            {
+                getCatalogsActions++;
             }
 
         }
