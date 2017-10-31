@@ -19,14 +19,6 @@ import ru.naumen.perfhouse.statdata.StatDataService;
 /**
  * Created by doki on 23.10.16.
  */
-
-//TODO: тут лепим VIEW (2)
-
-/**
- * отображает на сайте http://wildfly-new.148.251.87.70.nip.io передаваемый path
- * то есть, мы туда кидаем инфу и по ней глядим графики
- */
-
 @Controller
 public class HistoryController
 {
@@ -212,7 +204,7 @@ public class HistoryController
 
     @RequestMapping(path = "/history/{client}/custom/actions")
     public ModelAndView customActions(@PathVariable("client") String client, @RequestParam("from") String from,
-                                      @RequestParam("to") String to, @RequestParam("maxResults") int count) throws ParseException
+            @RequestParam("to") String to, @RequestParam("maxResults") int count) throws ParseException
     {
         return getDataAndViewCustom(client, DataType.ACTIONS, from, to, count, ACTIONS_VIEW);
     }

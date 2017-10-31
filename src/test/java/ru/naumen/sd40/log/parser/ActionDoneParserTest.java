@@ -75,7 +75,7 @@ public class ActionDoneParserTest {
         parser.parseLine("Done(10): GetDtObjectForRelObjListAction");
 
         //then:
-        Assert.assertEquals(7, parser.getListActions());
+        Assert.assertEquals(7, parser.geListActions());
     }
 
     @Test

@@ -10,7 +10,6 @@ import org.influxdb.dto.BatchPoints;
 
 import ru.naumen.perfhouse.influx.InfluxDAO;
 import ru.naumen.sd40.log.parser.GCParser.GCTimeParser;
-import sun.rmi.runtime.Log;
 
 /**
  * Created by doki on 22.10.16.
@@ -26,11 +25,9 @@ public class App
     public static void main(String[] args) throws IOException, ParseException
     {
         String influxDb = null;
-        System.out.println("app");
 
         if (args.length > 1)
         {
-            System.out.println(">1 arg");
             influxDb = args[1];
             influxDb = influxDb.replaceAll("-", "_");
         }

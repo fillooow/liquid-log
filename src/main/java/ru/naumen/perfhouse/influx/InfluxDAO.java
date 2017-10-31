@@ -3,7 +3,13 @@ package ru.naumen.perfhouse.influx;
 import static ru.naumen.perfhouse.statdata.Constants.GarbageCollection.AVARAGE_GC_TIME;
 import static ru.naumen.perfhouse.statdata.Constants.GarbageCollection.GCTIMES;
 import static ru.naumen.perfhouse.statdata.Constants.GarbageCollection.MAX_GC_TIME;
-import static ru.naumen.perfhouse.statdata.Constants.PerformedActions.*;
+import static ru.naumen.perfhouse.statdata.Constants.PerformedActions.ADD_ACTIONS;
+import static ru.naumen.perfhouse.statdata.Constants.PerformedActions.COMMENT_ACTIONS;
+import static ru.naumen.perfhouse.statdata.Constants.PerformedActions.EDIT_ACTIONS;
+import static ru.naumen.perfhouse.statdata.Constants.PerformedActions.GET_DT_OBJECT_ACTIONS;
+import static ru.naumen.perfhouse.statdata.Constants.PerformedActions.GET_FORM_ACTIONS;
+import static ru.naumen.perfhouse.statdata.Constants.PerformedActions.LIST_ACTIONS;
+import static ru.naumen.perfhouse.statdata.Constants.PerformedActions.SEARCH_ACTIONS;
 import static ru.naumen.perfhouse.statdata.Constants.ResponseTimes.COUNT;
 import static ru.naumen.perfhouse.statdata.Constants.ResponseTimes.ERRORS;
 import static ru.naumen.perfhouse.statdata.Constants.ResponseTimes.MAX;
@@ -107,7 +113,6 @@ public class InfluxDAO
         return BatchPoints.database(dbName).build();
     }
 
-    // берём экшоны из логов
     public void storeActionsFromLog(BatchPoints batch, String dbName, long date, ActionDoneParser dones,
             ErrorParser errors)
     {
@@ -125,10 +130,9 @@ public class InfluxDAO
                 .addField(ERRORS, errors.getErrorCount())
                 .addField(ADD_ACTIONS, dones.getAddObjectActions())
                 .addField(EDIT_ACTIONS, dones.getEditObjectsActions())
-                .addField(LIST_ACTIONS, dones.getListActions())
+                .addField(LIST_ACTIONS, dones.geListActions())
                 .addField(COMMENT_ACTIONS, dones.getCommentActions())
                 .addField(GET_FORM_ACTIONS, dones.getFormActions())
-                .addField(GET_CATALOG_ACTIONS, dones.getCatalogActions()) //TODO: добавили в билдер распарсинг каталогичных экшонов
                 .addField(GET_DT_OBJECT_ACTIONS, dones.getDtObjectActions())
                 .addField(SEARCH_ACTIONS, dones.getSearchActions());
 
@@ -147,7 +151,6 @@ public class InfluxDAO
         }
     }
 
-    // Разбираем парсинг жсона?
     public void storeFromJSon(BatchPoints batch, String dbName, JSONObject data)
     {
         influx.createDatabase(dbName);
