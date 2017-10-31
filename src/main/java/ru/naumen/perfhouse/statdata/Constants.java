@@ -74,7 +74,6 @@ public class Constants
         public static final String SEARCH_ACTIONS = "searchActions";
         public static final String GET_CATALOG_ACTIONS = "getCatalogsAction"; //TODO: добавляем действие (1)
         public static final String ACTIONS_COUNT = "count";
-		public static final String forGitHub; // будет удалено
 
         static List<String> getProps()
         {
