@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
+/**
+ * передаваемые нами константы
+ */
+
 public class Constants
 {
     private Constants()
@@ -68,12 +72,13 @@ public class Constants
         public static final String GET_FORM_ACTIONS = "getFormActions";
         public static final String GET_DT_OBJECT_ACTIONS = "getDtObjectActions";
         public static final String SEARCH_ACTIONS = "searchActions";
+        public static final String GET_CATALOG_ACTIONS = "getCatalogsAction"; //TODO: добавляем действие (1)
         public static final String ACTIONS_COUNT = "count";
 
         static List<String> getProps()
         {
             return Lists.newArrayList(TIME, ADD_ACTIONS, EDIT_ACTIONS, LIST_ACTIONS, COMMENT_ACTIONS, ACTIONS_COUNT,
-                    GET_FORM_ACTIONS, GET_DT_OBJECT_ACTIONS, SEARCH_ACTIONS);
+                    GET_FORM_ACTIONS, GET_DT_OBJECT_ACTIONS,GET_CATALOG_ACTIONS , SEARCH_ACTIONS);
         }
 
     }

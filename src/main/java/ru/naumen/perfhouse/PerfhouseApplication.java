@@ -23,10 +23,13 @@ public class PerfhouseApplication extends SpringBootServletInitializer
     {
         if (System.getProperty("Parser") != null)
         {
+            System.out.println("раз"); // парсер есть
             App.main(args);
         }
         else
         {
+            System.out.println("два"); // парсера нет
+            // запускаем спринговское приложение
             SpringApplication.run(PerfhouseApplication.class, args);
         }
     }
