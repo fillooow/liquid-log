@@ -73,6 +73,8 @@ public class ClientsController
         return new ModelAndView("clients", model, HttpStatus.OK);
     }
 
+
+    // Запрос на сервер, вроде тут всё заливаем
     @RequestMapping(path = "{client}", method = RequestMethod.POST)
     public void postClientStatFormat1(@PathVariable("client") String client, HttpServletRequest request,
             HttpServletResponse response) throws IOException
